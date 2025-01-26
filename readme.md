@@ -1,1 +1,0 @@
-This is a 'screensaver' integrated with the Spotify API in order to display listening activity. Intended as a study tool, I've been running it manually (rather than installing it as an actual customer screensaver, which may run into issues with the spotify log-in). Displays current listening activity, time, and a small stars/snow animation, and exits on key press!
