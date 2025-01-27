@@ -3,7 +3,6 @@ import pygame
 import tkinter as tk
 from datetime import datetime as dt
 import random
-
 import spotipy
 import spotipy.oauth2 as oauth2
 
@@ -11,10 +10,12 @@ root = tk.Tk()
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 game_clock = pygame.time.Clock()
+largestBallSize = 50
+ballsizeDif = 2
 REALCLOCK = 0
 
-client_id ='' ##write in here
-client_secret ='' ##write in here
+client_id ='aba3426c1b8d4f53af8d4ea9c3915a4c'
+client_secret = '0ff7538c56ed4ac09d5c3e6014c70a9f'
 redirect_uri = 'http://localhost:8080/'
 
 Height_to_width_ratio = 1 #testing font size function
@@ -24,7 +25,9 @@ color_palette = {
     'red': (186, 56, 33), 
     'orange' : (200, 122, 44), 
     'yellow' : (219, 182, 94),
-    'green': (133, 160, 136), 
+    'green': (133, 160, 136),
+    'middlegreen': (133, 160, 150),
+    'middlegreen' : (105, 130, 125), 
     'darkgreen': (99, 116, 120), 
     'darkgray': (15, 28, 44), 
     'blueblack': (9, 12, 29)
@@ -40,7 +43,7 @@ class RealClock(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self, *groups)
         self.font = pygame.font.Font(None, 400)
         self.font.set_italic(1)
-        self.color = color_palette['darkgray']
+        self.color = color_palette['blueblack']
         self.lasttime = -1  ###replaced by actual last time when run
         self.update()
         self.rect = self.image.get_rect().move(50, 650) # position on screen
@@ -125,18 +128,18 @@ class starAnimation(pygame.sprite.Sprite):
 
     def update(self, screen, *args, **kwargs):
         for star in self.star_field_slow:
-            star[1] += 1
-            if star[1] > screen_height:
+            star[1] += .5
+            if star[1] > screen_height+largestBallSize:
                 star[0] = random.randrange(0, screen_width)
                 star[1] = random.randrange(-20, -5)
-            pygame.draw.circle(screen, color_palette['green'], star, 3)
+            pygame.draw.circle(screen, color_palette['middlegreen'], star, largestBallSize) 
 
         for star in self.star_field_medium:
-            star[1] += 4
-            if star[1] > screen_height:
-                star[0] = random.randrange(0, screen_width)
+            star[1] += .7
+            if star[1] > screen_height+largestBallSize:
+                star[0] = random.randrange(0, screen_width) 
                 star[1] = random.randrange(-20, -5)
-            pygame.draw.circle(screen,color_palette['green'], star, 2)
+            pygame.draw.circle(screen, color_palette['middlegreen'], star, largestBallSize-ballsizeDif)
 
 
 
