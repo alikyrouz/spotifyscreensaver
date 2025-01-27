@@ -1,0 +1,1 @@
+'Screensaver' that displays user's current Spotify activity, the time, and a background animation. I run manually as a study tool, but could possibly be added as a default sceensaver in system files with edits to the authorization. 
