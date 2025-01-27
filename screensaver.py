@@ -14,8 +14,8 @@ largestBallSize = 50
 ballsizeDif = 2
 REALCLOCK = 0
 
-client_id ='aba3426c1b8d4f53af8d4ea9c3915a4c'
-client_secret = '0ff7538c56ed4ac09d5c3e6014c70a9f'
+client_id ='' #write in
+client_secret = ''
 redirect_uri = 'http://localhost:8080/'
 
 Height_to_width_ratio = 1 #testing font size function
@@ -116,11 +116,10 @@ class starAnimation(pygame.sprite.Sprite):
         self. star_field_medium = []
         #star_field_fast = []
 
-        for slow_stars in range(50): #birth those plasma balls, baby
+        for slow_stars in range(50): 
             star_loc_x = random.randrange(0, screen_width)
             star_loc_y = random.randrange(0, screen_height)
-            self.star_field_slow.append([star_loc_x, star_loc_y]) #i love your balls
-
+            self.star_field_slow.append([star_loc_x, star_loc_y]) 
         for medium_stars in range(35):
             star_loc_x = random.randrange(0, screen_width)
             star_loc_y = random.randrange(0, screen_height)
@@ -211,7 +210,5 @@ def get_spotify_info():
 
 def main():
     open_window()
-    ## maybe if statement here for if streaming --- or wrapper for streaming and not streaming options
-    #print(get_spotify_info())
 main()
 
