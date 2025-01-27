@@ -146,8 +146,10 @@ def make_time(time):
     '''formats time from datetime'''
     min = time.minute if time.minute >=10 else f'0{time.minute}' ##single digit minutes show as :04 instead of :4 (for ex)
 
-    if time.hour <=12:
+    if time.hour <12:
         return(f'{time.hour}:{min}am')
+    if time.hour == 12: 
+        return (f'{time.hour}:{min}pm')
     else:
         hour = time.hour-12
         return(f'{hour}:{min}pm')
