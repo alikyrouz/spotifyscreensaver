@@ -33,6 +33,14 @@ color_palette = {
     'blueblack': (9, 12, 29)
 }
 
+purple_palette = {
+    'warmtan': (139, 133, 137), 
+    'tan': (152, 152, 152), 
+    'gray': (121, 137, 150), 
+    'lightpurple': (151, 154, 170), 
+    'darkpurple': (76, 81,109)
+}
+
 class spotify_obj(spotipy.client.Spotify):
     def __init__(self, auth_manager):
         super().__init__(auth_manager = auth_manager)
